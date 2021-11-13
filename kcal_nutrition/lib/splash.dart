@@ -7,11 +7,14 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF91C789),
       body: Center(
         child: Text(
           'kcal',
-          style: GoogleFonts.workSans(
-            fontSize: 48,
+          style: GoogleFonts.nunito(
+            fontSize: 72,
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
           ),
         ),
       ),

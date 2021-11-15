@@ -133,8 +133,37 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Align(
-                alignment: Alignment(0, 5.5),
-                child: TextButton(onPressed: () {}, child: Text('TextButton'))),
+              alignment: Alignment(0, .75),
+              child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Get Started',
+                  style: GoogleFonts.workSans(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 28,
+                  ),
+                ),
+                style: TextButton.styleFrom(
+                  minimumSize: Size(280, 70),
+                  primary: Colors.white,
+                  backgroundColor: Color(0xFFFF9386),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(24)),
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment(0.0, .86),
+              child: Text(
+                'Already Have An Account? Log In',
+                style: GoogleFonts.workSans(
+                  fontSize: 16,
+                  color: Colors.black54,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            )
           ],
         ),
       ),

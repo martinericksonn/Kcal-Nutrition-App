@@ -11,6 +11,19 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  var data = 5;
+  TextStyle appTitle = GoogleFonts.nunito(
+    fontSize: 72,
+    fontWeight: FontWeight.w800,
+    color: Colors.white,
+  );
+
+  TextStyle developerTitle = GoogleFonts.nunito(
+    fontSize: 28,
+    fontWeight: FontWeight.w800,
+    color: Colors.white54,
+  );
+
   @override
   void initState() {
     super.initState();
@@ -34,11 +47,8 @@ class _SplashState extends State<Splash> {
     return Scaffold(
       backgroundColor: Color(0xFF91C789),
       body: AnimatedOpacity(
-        // If the widget is visible, animate to 0.0 (invisible).
-        // If the widget is hidden, animate to 1.0 (fully visible).
-        opacity: 0.0,
+        opacity: 1.0,
         duration: Duration(milliseconds: 2000),
-
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -51,22 +61,14 @@ class _SplashState extends State<Splash> {
               alignment: Alignment.center,
               child: Text(
                 'kcal',
-                style: GoogleFonts.nunito(
-                  fontSize: 72,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.white,
-                ),
+                style: appTitle,
               ),
             ),
             Align(
               alignment: Alignment(0.0, 0.8),
               child: Text(
                 'LAPETAJE',
-                style: GoogleFonts.nunito(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.white54,
-                ),
+                style: developerTitle,
               ),
             )
           ]),

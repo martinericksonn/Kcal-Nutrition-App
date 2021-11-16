@@ -31,37 +31,90 @@ class MyHomePage extends StatefulWidget {
 
 final List<Widget> imageSliders = imgList
     .map((item) => Container(
-          margin: EdgeInsets.all(5.0),
+          margin: EdgeInsets.all(15.0),
           child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(5.0)),
               child: Stack(
                 children: <Widget>[
-                  Image.network(item, fit: BoxFit.cover, width: 2000.0),
+                  Image.network(item, fit: BoxFit.cover, width: 2500.0),
                   Positioned(
                     bottom: 0.0,
                     left: 0.0,
                     right: 0.0,
                     child: Container(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 20.0),
-                      child: Text(
-                        'No. ${imgList.indexOf(item)} image',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
+                        padding: EdgeInsets.symmetric(
+                            vertical: 0.0, horizontal: 0.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              onboardingMessage(imgList.indexOf(item), 0),
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.workSans(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 22,
+                              ),
+                            ),
+                            Text(
+                              onboardingMessage(imgList.indexOf(item), 1),
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.workSans(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black54,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ],
+                        )),
                   ),
                 ],
               )),
         ))
     .toList();
 
+String onboardingMessage(int index, int choices) {
+  var message = getOnboardingMessage(index);
+
+  switch (choices) {
+    case 0:
+      return message[0];
+    case 1:
+      return message[1];
+    default:
+      return "null";
+  }
+}
+
+List<String> getOnboardingMessage(int index) {
+  List<String> message = [];
+
+  switch (index) {
+    case 0:
+      message.add('Eat Healthy');
+      message.add(
+          'Maintaining good health should be the primary focus of everyone');
+      break;
+    case 1:
+      message.add('Healthy Recipes');
+      message
+          .add('Browse thousands of healthy\nrecipes from all over the world.');
+      break;
+    case 2:
+      message.add('Track Your Health');
+      message.add('With amazing inbuild tools you\ncan track you progess.');
+      break;
+    case 3:
+      message.add('Live Healthy');
+      message.add(
+          'Healthy foods to look up that will\nsurely give you healty lifestyle.');
+      break;
+    default:
+  }
+
+  return message;
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   int _current = 0;
-  final CarouselController _controller = CarouselController();
   TextStyle appName = GoogleFonts.nunito(
     fontSize: 38,
     fontWeight: FontWeight.w800,

@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 final List<String> imgList = [
-  "https://i.ibb.co/dWQzmK3/cooking.png",
   "https://i.ibb.co/s3mHTLD/eating.png",
+  "https://i.ibb.co/dWQzmK3/cooking.png",
   "https://i.ibb.co/MVZrB5z/health.png",
   "https://i.ibb.co/02XqsbJ/track.png",
 ];
@@ -31,17 +31,22 @@ class MyHomePage extends StatefulWidget {
 
 final List<Widget> imageSliders = imgList
     .map((item) => Container(
-          margin: EdgeInsets.all(15.0),
+          margin: EdgeInsets.all(20.0),
           child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(5.0)),
               child: Stack(
                 children: <Widget>[
-                  Image.network(item, fit: BoxFit.cover, width: 2500.0),
+                  Image.network(
+                    item,
+                    fit: BoxFit.cover,
+                    width: 2500.0,
+                  ),
                   Positioned(
                     bottom: 0.0,
                     left: 0.0,
                     right: 0.0,
                     child: Container(
+                        width: 2500.0,
                         padding: EdgeInsets.symmetric(
                             vertical: 0.0, horizontal: 0.0),
                         child: Column(
@@ -51,16 +56,22 @@ final List<Widget> imageSliders = imgList
                               textAlign: TextAlign.center,
                               style: GoogleFonts.workSans(
                                 fontWeight: FontWeight.w600,
-                                fontSize: 22,
+                                fontSize: 24,
                               ),
                             ),
-                            Text(
-                              onboardingMessage(imgList.indexOf(item), 1),
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.workSans(
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black54,
-                                fontSize: 18,
+                            Padding(
+                              padding: EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                onboardingMessage(imgList.indexOf(item), 1),
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.visible,
+                                softWrap: false,
+                                style: GoogleFonts.workSans(
+                                  height: 1.5,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 17,
+                                ),
                               ),
                             ),
                           ],
@@ -90,22 +101,19 @@ List<String> getOnboardingMessage(int index) {
   switch (index) {
     case 0:
       message.add('Eat Healthy');
-      message.add(
-          'Maintaining good health should be the primary focus of everyone');
+      message.add('Maintaining good health\nshould be the focus of all ');
       break;
     case 1:
       message.add('Healthy Recipes');
-      message
-          .add('Browse thousands of healthy\nrecipes from all over the world.');
+      message.add('Browse a tons of healthy\nrecipes from all over world.');
       break;
     case 2:
       message.add('Track Your Health');
-      message.add('With amazing inbuild tools you\ncan track you progess.');
+      message.add('With amazing inbuild tools\nyou can track you progess.');
       break;
     case 3:
       message.add('Live Healthy');
-      message.add(
-          'Healthy foods to look up that will\nsurely give you healty lifestyle.');
+      message.add('''Healthy foods will surely\ngive you healty lifestyle.''');
       break;
     default:
   }
@@ -135,21 +143,24 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Align(
               alignment: Alignment(0.0, -0.3),
-              child: CarouselSlider(
-                options: CarouselOptions(
-                    aspectRatio: 1.0,
-                    enlargeCenterPage: true,
-                    autoPlay: true,
-                    onPageChanged: (index, reason) {
-                      setState(() {
-                        _current = index;
-                      });
-                    }),
-                items: imageSliders,
+              child: SizedBox(
+                child: CarouselSlider(
+                  options: CarouselOptions(
+                      height: 400,
+                      aspectRatio: 1.0,
+                      enlargeCenterPage: true,
+                      autoPlay: true,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          _current = index;
+                        });
+                      }),
+                  items: imageSliders,
+                ),
               ),
             ),
             Align(
-              alignment: Alignment(0.0, 0.5),
+              alignment: Alignment(0.0, 0.43),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: imgList.asMap().entries.map((entry) {
@@ -174,7 +185,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Align(
-              alignment: Alignment(0, .75),
+              alignment: Alignment(0, .72),
               child: TextButton(
                 onPressed: () {},
                 child: Text(
@@ -182,6 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: GoogleFonts.workSans(
                     fontWeight: FontWeight.w500,
                     fontSize: 24,
+                    letterSpacing: 1.0,
                   ),
                 ),
                 style: TextButton.styleFrom(
@@ -195,7 +207,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Align(
-                alignment: Alignment(0.0, .87),
+                alignment: Alignment(0.0, .84),
                 child: RichText(
                   text: TextSpan(
                     text: 'Already Have An Account? ',

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kcal_nutrition/constans.dart';
-import 'package:kcal_nutrition/home/favorites/favorites.dart';
 
-TextButton textButton(String text, context, destination) {
+TextButton textButton(String text, currentContext, destination) {
   return TextButton(
     onPressed: () {
       Navigator.push(
-        context,
+        currentContext,
         MaterialPageRoute(
           builder: (context) => destination,
         ),

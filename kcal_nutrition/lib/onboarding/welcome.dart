@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:kcal_nutrition/onboarding/constans.dart';
 
 final List<String> imgList = [
   "https://i.ibb.co/s3mHTLD/eating.png",
@@ -11,22 +12,12 @@ final List<String> imgList = [
   "https://i.ibb.co/02XqsbJ/track.png",
 ];
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
+class OnBoarding extends StatefulWidget {
+  OnBoarding({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<OnBoarding> createState() => _OnBoardingState();
 }
 
 final List<Widget> imageSliders = imgList
@@ -83,152 +74,191 @@ final List<Widget> imageSliders = imgList
     .toList();
 
 String onboardingMessage(int index, int choices) {
-  var message = getOnboardingMessage(index);
+  List<String> displayText = [];
+  String header = '', body = '';
+
+  switch (index) {
+    case 0:
+      header = 'Eat Healthy';
+      body = 'Maintaining good health\nshould be the focus of all ';
+      break;
+    case 1:
+      header = 'Healthy Recipes';
+      body = 'Browse a tons of healthy\nrecipes from all over world.';
+      break;
+    case 2:
+      header = 'Track Your Health';
+      body = 'With amazing inbuild tools\nyou can track you progess.';
+      break;
+    case 3:
+      header = 'Live Healthy';
+      body = 'Healthy foods will surely\ngive you healty lifestyle.';
+      break;
+    default:
+  }
+
+  displayText.add(header);
+  displayText.add(body);
 
   switch (choices) {
     case 0:
-      return message[0];
+      return displayText[0];
     case 1:
-      return message[1];
+      return displayText[1];
     default:
       return "null";
   }
 }
 
-List<String> getOnboardingMessage(int index) {
-  List<String> message = [];
-
-  switch (index) {
-    case 0:
-      message.add('Eat Healthy');
-      message.add('Maintaining good health\nshould be the focus of all ');
-      break;
-    case 1:
-      message.add('Healthy Recipes');
-      message.add('Browse a tons of healthy\nrecipes from all over world.');
-      break;
-    case 2:
-      message.add('Track Your Health');
-      message.add('With amazing inbuild tools\nyou can track you progess.');
-      break;
-    case 3:
-      message.add('Live Healthy');
-      message.add('''Healthy foods will surely\ngive you healty lifestyle.''');
-      break;
-    default:
-  }
-
-  return message;
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _OnBoardingState extends State<OnBoarding> {
   int _current = 0;
   TextStyle appName = GoogleFonts.nunito(
     fontSize: 38,
     fontWeight: FontWeight.w800,
     color: Color(0xFF91C789),
   );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Stack(
           children: [
-            Align(
-              alignment: Alignment(0.0, -0.85),
-              child: Text(
-                'kcal',
-                style: appName,
-              ),
-            ),
-            Align(
-              alignment: Alignment(0.0, -0.3),
-              child: SizedBox(
-                child: CarouselSlider(
-                  options: CarouselOptions(
-                      height: 400,
-                      aspectRatio: 1.0,
-                      enlargeCenterPage: true,
-                      autoPlay: true,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          _current = index;
-                        });
-                      }),
-                  items: imageSliders,
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment(0.0, 0.43),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: imgList.asMap().entries.map((entry) {
-                  return GestureDetector(
-                    // onTap: () => _controller.animateToPage(entry.key),
-                    child: Container(
-                      width: _current == entry.key ? 20.0 : 12,
-                      height: _current == entry.key ? 12.0 : 8,
-                      margin:
-                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 1.5),
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.all(Radius.elliptical(140, 100)),
-                          color: (Theme.of(context).brightness ==
-                                      Brightness.dark
-                                  ? Colors.white
-                                  : Color(0xFFFF9386))
-                              .withOpacity(_current == entry.key ? 0.9 : 0.4)),
-                    ),
-                  );
-                }).toList(),
-              ),
-            ),
-            Align(
-              alignment: Alignment(0, .72),
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Get Started',
-                  style: GoogleFonts.workSans(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 24,
-                    letterSpacing: 1.0,
-                  ),
-                ),
-                style: TextButton.styleFrom(
-                  minimumSize: Size(280, 68),
-                  primary: Colors.white,
-                  backgroundColor: Color(0xFFFF9386),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(24)),
-                  ),
-                ),
-              ),
-            ),
-            Align(
-                alignment: Alignment(0.0, .84),
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Already Have An Account? ',
-                    style: GoogleFonts.workSans(
-                      fontSize: 16,
-                      color: Colors.black54,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    children: const <TextSpan>[
-                      TextSpan(
-                        text: 'Log In',
-                        style: TextStyle(
-                          color: Color(0xFF91C789),
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ],
-                  ),
-                ))
+            appLogo(),
+            onboardingContent(),
+            onboardingIndicator(context),
+            homeButton(),
+            registerFooter()
           ],
         ),
+      ),
+    );
+  }
+
+  TextStyle workSans(double fontSize, FontWeight weight, Color color) {
+    return GoogleFonts.workSans(
+      fontSize: fontSize,
+      color: color,
+      fontWeight: weight,
+    );
+  }
+
+  TextStyle workSansSpacing(double fontSize, FontWeight weight, Color color) {
+    return GoogleFonts.workSans(
+      fontSize: fontSize,
+      color: color,
+      fontWeight: weight,
+      letterSpacing: 1.0,
+    );
+  }
+
+  Align registerFooter() {
+    return Align(
+      alignment: REG_ALIGN,
+      child: RichText(
+        text: registerText(),
+      ),
+    );
+  }
+
+  TextSpan registerText() {
+    return TextSpan(
+        text: 'Already Have An Account? ',
+        style: workSans(
+          MID_SIZE,
+          MID_WEIGHT,
+          BLACK,
+        ),
+        children: const <TextSpan>[
+          TextSpan(
+            text: 'Log In',
+            style: TextStyle(
+              color: GREEN,
+              fontWeight: MID_WEIGHT,
+            ),
+          ),
+        ]);
+  }
+
+  Align homeButton() {
+    return Align(
+      alignment: BTN_ALIGN,
+      child: textButton('Get Started'),
+    );
+  }
+
+  TextButton textButton(String text) {
+    return TextButton(
+      onPressed: () {},
+      child: Text(
+        text,
+        style: workSansSpacing(
+          HUGE_SIZE,
+          MID_WEIGHT,
+          WHITE,
+        ),
+      ),
+      style: TextButton.styleFrom(
+        primary: WHITE,
+        backgroundColor: PINK,
+        minimumSize: BUTTON_SIZE,
+        shape: BUTTON_SHAPE,
+      ),
+    );
+  }
+
+  Align onboardingIndicator(BuildContext context) {
+    return Align(
+      alignment: Alignment(0.0, 0.43),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: imgList.asMap().entries.map((entry) {
+          return GestureDetector(
+            // onTap: () => _controller.animateToPage(entry.key),
+            child: Container(
+              width: _current == entry.key ? 20.0 : 12,
+              height: _current == entry.key ? 12.0 : 8,
+              margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 1.5),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.elliptical(140, 100)),
+                  color: (Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Color(0xFFFF9386))
+                      .withOpacity(_current == entry.key ? 0.9 : 0.4)),
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+
+  Align onboardingContent() {
+    return Align(
+      alignment: Alignment(0.0, -0.3),
+      child: SizedBox(
+        child: CarouselSlider(
+          options: CarouselOptions(
+              height: 400,
+              aspectRatio: 1.0,
+              enlargeCenterPage: true,
+              autoPlay: true,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  _current = index;
+                });
+              }),
+          items: imageSliders,
+        ),
+      ),
+    );
+  }
+
+  Align appLogo() {
+    return Align(
+      alignment: Alignment(0.0, -0.85),
+      child: Text(
+        'kcal',
+        style: appName,
       ),
     );
   }

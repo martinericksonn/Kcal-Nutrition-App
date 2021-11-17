@@ -74,7 +74,7 @@ class _OnBoardingState extends State<OnBoarding> {
   Align homeButton(nav) {
     return Align(
       alignment: BTN_ALIGN,
-      child: textButton('Get Started', context, nav),
+      child: textButton('Get Started', context, nav, POP),
     );
   }
 

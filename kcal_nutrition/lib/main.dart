@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kcal_nutrition/constans.dart';
 import 'splash.dart';
 
 void main() => runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Kcal App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: DEFAULT_WHITE,
       ),
       home: Splash(),
     );

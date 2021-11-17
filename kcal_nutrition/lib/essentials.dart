@@ -2,15 +2,49 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kcal_nutrition/constans.dart';
 
-TextButton textButton(String text, currentContext, destination) {
+void navigator(
+  currentContext,
+  destination,
+  choice,
+) {
+  switch (choice) {
+    case PUSH:
+      pushPage(currentContext, destination);
+      break;
+    case POP:
+      popPage(currentContext, destination);
+      break;
+    default:
+  }
+}
+
+void pushPage(currentContext, destination) {
+  Navigator.push(
+    currentContext,
+    MaterialPageRoute(
+      builder: (context) => destination,
+    ),
+  );
+}
+
+void popPage(currentContext, destination) {
+  Navigator.pushReplacement(
+    currentContext,
+    MaterialPageRoute(
+      builder: (context) => destination,
+    ),
+  );
+}
+
+TextButton textButton(
+  String text,
+  currentContext,
+  destination,
+  choice,
+) {
   return TextButton(
     onPressed: () {
-      Navigator.push(
-        currentContext,
-        MaterialPageRoute(
-          builder: (context) => destination,
-        ),
-      );
+      navigator(currentContext, destination, choice);
     },
     child: Text(
       text,
@@ -29,7 +63,11 @@ TextButton textButton(String text, currentContext, destination) {
   );
 }
 
-TextStyle workSans(double fontSize, FontWeight weight, Color color) {
+TextStyle workSans(
+  double fontSize,
+  FontWeight weight,
+  Color color,
+) {
   return GoogleFonts.workSans(
     fontSize: fontSize,
     color: color,
@@ -37,7 +75,11 @@ TextStyle workSans(double fontSize, FontWeight weight, Color color) {
   );
 }
 
-TextStyle workSansWithSpacing(double fontSize, FontWeight weight, Color color) {
+TextStyle workSansWithSpacing(
+  double fontSize,
+  FontWeight weight,
+  Color color,
+) {
   return GoogleFonts.workSans(
     fontSize: fontSize,
     color: color,

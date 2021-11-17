@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, import_of_legacy_library_into_null_safe, prefer_const_constructors_in_immutables
+// ignore_for_file: prefer_const_constructors, import_of_legacy_library_into_null_safe, prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:kcal_nutrition/constans.dart';
@@ -12,7 +12,7 @@ class AppHome extends StatefulWidget {
 }
 
 class _AppHomeState extends State<AppHome> {
-  int _selectedIndex = 0;
+  int _selectedIndex = ZERO;
   Color selectedIcon = BLACK;
 
   void _onItemTapped(int index) {
@@ -25,76 +25,74 @@ class _AppHomeState extends State<AppHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('Favorite')),
       body: SafeArea(
         child: Center(
           child: Text("Hello World"),
         ),
       ),
       bottomNavigationBar: SizedBox(
-        height: 62,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(30), topLeft: Radius.circular(30)),
-            // ignore: prefer_const_literals_to_create_immutables
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black,
-                spreadRadius: 1,
-                blurRadius: 0.1,
-              ),
-            ],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30.0),
-              topRight: Radius.circular(30.0),
-            ),
-            child: BottomNavigationBar(
-              showSelectedLabels: false,
-              showUnselectedLabels: false,
-              // ignore: prefer_const_literals_to_create_immutables
-              items: [
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Feather.home,
-                  ),
-                  label: 'home',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Feather.search,
-                  ),
-                  label: 'search',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Feather.camera,
-                  ),
-                  label: 'camera',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Feather.heart,
-                  ),
-                  label: 'heart',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Feather.user,
-                  ),
-                  label: 'user',
-                ),
-              ],
-              currentIndex: _selectedIndex,
-              selectedItemColor: PINK,
-              unselectedItemColor: BLACK,
-              onTap: _onItemTapped,
-              type: BottomNavigationBarType.fixed,
-            ),
-          ),
-        ),
+        height: NAV_BAR_HEIGHT,
+        child: navBarHolder(),
       ),
+    );
+  }
+
+  Container navBarHolder() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: NAV_SHAPE,
+        boxShadow: [
+          BoxShadow(
+            color: SHADOW,
+            spreadRadius: NONE,
+            blurRadius: MINIMAL,
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: CIRCULAR,
+          topRight: CIRCULAR,
+        ),
+        child: navBar(),
+      ),
+    );
+  }
+
+  BottomNavigationBar navBar() {
+    return BottomNavigationBar(
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      currentIndex: _selectedIndex,
+      selectedItemColor: PINK,
+      unselectedItemColor: BLACK,
+      onTap: _onItemTapped,
+      type: BottomNavigationBarType.fixed,
+      items: [
+        navBarItem(Feather.home, 'home'),
+        navBarItem(Feather.search, 'search'),
+        navBarCamera(),
+        navBarItem(Feather.heart, 'heart'),
+        navBarItem(Feather.user, 'user'),
+      ],
+    );
+  }
+
+  BottomNavigationBarItem navBarCamera() {
+    return BottomNavigationBarItem(
+        icon: CircleAvatar(
+          radius: AVATAR_RADIUS,
+          backgroundColor: GREEN,
+          child: Icon(Feather.camera),
+        ),
+        label: 'camera');
+  }
+
+  BottomNavigationBarItem navBarItem(iconItem, text) {
+    return BottomNavigationBarItem(
+      icon: Icon(iconItem),
+      label: text,
     );
   }
 }

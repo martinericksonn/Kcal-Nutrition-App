@@ -60,6 +60,7 @@ class _OnBoardingState extends State<OnBoarding> {
           MID_SIZE,
           MID_WEIGHT,
           BLACK,
+          LOOSE_SPACING,
         ),
         children: const <TextSpan>[
           TextSpan(
@@ -75,7 +76,13 @@ class _OnBoardingState extends State<OnBoarding> {
   Align homeButton(nav) {
     return Align(
       alignment: BTN_ALIGN,
-      child: textButton('Get Started', context, nav, POP),
+      child: textButton(
+        'Get Started',
+        context,
+        nav,
+        POP,
+        LOOSE_SPACING,
+      ),
     );
   }
 

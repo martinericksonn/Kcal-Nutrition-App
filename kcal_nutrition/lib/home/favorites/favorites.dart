@@ -2,6 +2,7 @@
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:kcal_nutrition/constans.dart';
+import 'package:kcal_nutrition/essentials.dart';
 
 class AppHome extends StatefulWidget {
   AppHome({Key? key}) : super(key: key);
@@ -27,7 +28,15 @@ class _AppHomeState extends State<AppHome> {
       backgroundColor: WHITE,
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Favorite'),
+        title: Text(
+          'Favorites',
+          style: workSans(
+            MID_SIZE,
+            MID_WEIGHT,
+            SUPER_BLACK,
+            TIGHT_SPACING,
+          ),
+        ),
         elevation: NONE,
       ),
       body: SafeArea(

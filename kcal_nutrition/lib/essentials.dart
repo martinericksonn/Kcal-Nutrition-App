@@ -40,15 +40,16 @@ TextButton textButton(
   String text,
   currentContext,
   destination,
-  choice,
-) {
+  choice, [
+  spacing,
+]) {
   return TextButton(
     onPressed: () {
       navigator(currentContext, destination, choice);
     },
     child: Text(
       text,
-      style: workSansWithSpacing(
+      style: workSans(
         BIG_SIZE,
         MID_WEIGHT,
         WHITE,
@@ -64,26 +65,15 @@ TextButton textButton(
 }
 
 TextStyle workSans(
-  double fontSize,
-  FontWeight weight,
-  Color color,
-) {
+  fontSize,
+  weight,
+  color, [
+  space = DEFAULT_SPACING,
+]) {
   return GoogleFonts.workSans(
     fontSize: fontSize,
     color: color,
     fontWeight: weight,
-  );
-}
-
-TextStyle workSansWithSpacing(
-  double fontSize,
-  FontWeight weight,
-  Color color,
-) {
-  return GoogleFonts.workSans(
-    fontSize: fontSize,
-    color: color,
-    fontWeight: weight,
-    letterSpacing: BUTTON_DEFAULT_SPACING,
+    letterSpacing: space,
   );
 }

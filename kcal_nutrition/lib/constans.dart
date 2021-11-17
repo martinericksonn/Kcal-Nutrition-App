@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 const Color GREEN = Color(0xFF91C789);
 const Color PINK = Color(0xFFFF9386);
 const Color BLACK = Colors.black54;
+const Color SUPER_BLACK = Colors.black;
 const Color WHITE = Colors.white;
 const Color SHADOW = Color(0xFFEEEEEE);
 
@@ -13,6 +14,11 @@ const Color SHADOW = Color(0xFFEEEEEE);
 const double MID_SIZE = 16;
 const double BIG_SIZE = 24;
 const double BIGGER_SIZE = 38;
+
+// font size
+const double LOOSE_SPACING = 1.0;
+const double TIGHT_SPACING = -0.5;
+const double DEFAULT_SPACING = 0;
 
 //font weight
 const FontWeight MID_WEIGHT = FontWeight.w500;
@@ -66,7 +72,6 @@ const BUTTON_SHAPE = RoundedRectangleBorder(
 const NAV_SHAPE = BorderRadius.only(
     topRight: Radius.circular(30), topLeft: Radius.circular(30));
 const Size BUTTON_SIZE = Size(280, 68);
-const double BUTTON_DEFAULT_SPACING = 1.0;
 
 const MaterialColor DEFAULT_WHITE = MaterialColor(
   0xFFFFFFFF,

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kcal_nutrition/constans.dart';
 import 'onboarding/welcome.dart';
 
 class Splash extends StatefulWidget {
@@ -45,7 +46,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF91C789),
+      backgroundColor: GREEN,
       body: AnimatedOpacity(
         opacity: 1.0,
         duration: Duration(milliseconds: 2000),

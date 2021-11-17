@@ -69,11 +69,13 @@ TextStyle workSans(
   weight,
   color, [
   space = DEFAULT_SPACING,
+  height = DEFAULT_HEIGHT,
 ]) {
   return GoogleFonts.workSans(
     fontSize: fontSize,
     color: color,
     fontWeight: weight,
     letterSpacing: space,
+    height: height,
   );
 }

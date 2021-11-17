@@ -68,6 +68,8 @@ flutter:
     - assets/images/eating.png
     - assets/images/health.png
     - assets/images/track.png
+    - assets/images/recipes.png
+    - assets/images/foods.png
 
   #   - images/a_dot_ham.jpeg
 

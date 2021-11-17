@@ -22,6 +22,8 @@ const double BIGGER_SIZE = 38;
 const double LOOSE_SPACING = 1.0;
 const double TIGHT_SPACING = -0.5;
 const double DEFAULT_SPACING = 0;
+const double LOOSE_HEIGHT = 1.5;
+const double DEFAULT_HEIGHT = 1.0;
 
 //font weight
 const FontWeight MID_WEIGHT = FontWeight.w500;

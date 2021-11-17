@@ -29,12 +29,19 @@ class _TabsState extends State<Tabs> {
               switch (key) {
                 case 'foods':
                   return SizedBox(
-                    height: 240,
+                    height: 500,
                     child: Center(
                       child: Column(
                         children: [
-                          Image.asset('assets/images/salad.jpg'),
-                          emptyTabTitle('No Food Found'),
+                          SizedBox(
+                            height: 120,
+                          ),
+                          Image.asset(
+                            'assets/images/vegetables.png',
+                            height: 100,
+                            width: 100,
+                          ),
+                          emptyTabTitle('food'),
                         ],
                       ),
                     ),
@@ -42,12 +49,19 @@ class _TabsState extends State<Tabs> {
 
                 case 'recipes':
                   return SizedBox(
-                    height: 240,
+                    height: 500,
                     child: Center(
                       child: Column(
                         children: [
-                          Image.asset('assets/images/vegetable.jpg'),
-                          emptyTabTitle('No Recipes Found'),
+                          SizedBox(
+                            height: 120,
+                          ),
+                          Image.asset(
+                            'assets/images/salad.png',
+                            height: 100,
+                            width: 100,
+                          ),
+                          emptyTabTitle('recipes'),
                         ],
                       ),
                     ),
@@ -61,13 +75,41 @@ class _TabsState extends State<Tabs> {
     );
   }
 
-  Text emptyTabTitle(title) {
-    return Text(title,
-        style: workSans(
-          BIG_SIZE,
-          MID_WEIGHT,
-          BLACK,
-        ));
+  Padding emptyTabTitle(title) {
+    return Padding(
+      padding: const EdgeInsets.all(25.0),
+      child: Column(
+        children: [
+          Text(
+            'No ${capitalize(title)} Found',
+            style: workSans(
+              BIG_SIZE,
+              MID_WEIGHT,
+              BLACK,
+              TIGHT_SPACING,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              "You don't save any $title. Go ahead,\nsearch and save your favorite $title.",
+              textAlign: TextAlign.center,
+              style: workSans(
+                MID_SIZE,
+                MID_WEIGHT,
+                BLACK,
+                TIGHT_SPACING,
+                LOOSE_HEIGHT,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  String capitalize(word) {
+    return "${word[0].toUpperCase()}${word.substring(1)}";
   }
 
   AdvancedSegment tabOptions() {
@@ -101,42 +143,6 @@ class _TabsState extends State<Tabs> {
       shadow: const <BoxShadow>[
         BoxShadow(),
       ],
-    );
-  }
-}
-
-void main() {
-  runApp(const TabBarDemo());
-}
-
-class TabBarDemo extends StatelessWidget {
-  const TabBarDemo({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            bottom: const TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.directions_car)),
-                Tab(icon: Icon(Icons.directions_transit)),
-                Tab(icon: Icon(Icons.directions_bike)),
-              ],
-            ),
-            title: const Text('Tabs Demo'),
-          ),
-          body: const TabBarView(
-            children: [
-              Icon(Icons.directions_car),
-              Icon(Icons.directions_transit),
-              Icon(Icons.directions_bike),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }

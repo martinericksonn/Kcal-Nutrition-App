@@ -16,9 +16,6 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: Colors.transparent),
     );
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.transparent,
-    ));
     return MaterialApp(
       title: 'Kcal App',
       debugShowCheckedModeBanner: false,

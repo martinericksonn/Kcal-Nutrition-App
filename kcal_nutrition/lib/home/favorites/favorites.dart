@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
 
+import 'package:kcal_nutrition/home/favorites/tabs.dart';
+
 class AppHome extends StatefulWidget {
   AppHome({Key? key}) : super(key: key);
 
@@ -27,6 +29,7 @@ class _AppHomeState extends State<AppHome> {
     return Scaffold(
       backgroundColor: WHITE,
       appBar: AppBar(
+        toolbarHeight: 68,
         centerTitle: true,
         title: Text(
           'Favorites',
@@ -41,7 +44,10 @@ class _AppHomeState extends State<AppHome> {
       ),
       body: SafeArea(
         child: Center(
-          child: Text("Hello World"),
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Tabs(),
+          ),
         ),
       ),
       bottomNavigationBar: SizedBox(

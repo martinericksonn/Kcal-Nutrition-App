@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 //colors
 const Color GREEN = Color(0xFF91C789);
+const Color LIGHT_GREEN = Color(0xFFF4F9F3);
 const Color PINK = Color(0xFFFF9386);
 const Color BLACK = Colors.black54;
 const Color SUPER_BLACK = Colors.black;
@@ -49,7 +50,8 @@ const ZERO = 0;
 const INDICATOR_SHAPE = BorderRadius.all(Radius.elliptical(140, 100));
 
 //favorite screen
-const NAV_BAR_HEIGHT = 74.0;
+const APP_BAR_HEIGHT = 68.0;
+const NAV_BAR_HEIGHT = 84.0;
 const MINIMAL = 5.0;
 const CIRCULAR = Radius.circular(30.0);
 const AVATAR_RADIUS = 22.0;

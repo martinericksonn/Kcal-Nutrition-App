@@ -90,6 +90,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_advanced_segment:
+    dependency: "direct main"
+    description:
+      name: flutter_advanced_segment
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1+2"
   flutter_icons:
     dependency: "direct main"
     description:

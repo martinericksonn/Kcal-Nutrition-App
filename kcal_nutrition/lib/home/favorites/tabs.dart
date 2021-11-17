@@ -19,7 +19,58 @@ class _TabsState extends State<Tabs> {
     return tabs();
   }
 
-  AdvancedSegment tabs() {
+  Column tabs() {
+    return Column(
+      children: [
+        tabOptions(),
+        ValueListenableBuilder<String>(
+            valueListenable: _controller,
+            builder: (_, key, __) {
+              switch (key) {
+                case 'foods':
+                  return SizedBox(
+                    height: 240,
+                    child: Center(
+                      child: Column(
+                        children: [
+                          Image.asset('assets/images/salad.jpg'),
+                          emptyTabTitle('No Food Found'),
+                        ],
+                      ),
+                    ),
+                  );
+
+                case 'recipes':
+                  return SizedBox(
+                    height: 240,
+                    child: Center(
+                      child: Column(
+                        children: [
+                          Image.asset('assets/images/vegetable.jpg'),
+                          emptyTabTitle('No Recipes Found'),
+                        ],
+                      ),
+                    ),
+                  );
+
+                default:
+                  return const SizedBox();
+              }
+            })
+      ],
+    );
+  }
+
+  Text emptyTabTitle(title) {
+    return Text(title,
+        style: workSans(
+          BIG_SIZE,
+          MID_WEIGHT,
+          BLACK,
+        ));
+  }
+
+  AdvancedSegment tabOptions() {
     return AdvancedSegment(
       controller: _controller, // AdvancedSegmentController
       // ignore: prefer_const_literals_to_create_immutables

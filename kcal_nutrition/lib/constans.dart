@@ -7,6 +7,7 @@ const Color GREEN = Color(0xFF91C789);
 const Color LIGHT_GREEN = Color(0xFFF4F9F3);
 const Color PINK = Color(0xFFFF9386);
 const Color BLACK = Colors.black54;
+const Color MID_BLACK = Colors.black87;
 const Color SUPER_BLACK = Colors.black;
 const Color WHITE = Colors.white;
 const Color SHADOW = Color(0xFFF6F6F6);

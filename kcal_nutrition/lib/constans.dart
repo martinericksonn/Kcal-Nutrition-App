@@ -52,6 +52,7 @@ const DARKEN = 0.9;
 const NONE = 0.0;
 
 const ZERO = 0;
+const ONE = 1;
 const INDICATOR_SHAPE = BorderRadius.all(Radius.elliptical(140, 100));
 
 //favorite screen
@@ -63,8 +64,16 @@ const AVATAR_RADIUS = 22.0;
 const PUSH = 0;
 const POP = 1;
 
+//tabs
 const FOODS = 'foods';
 const RECIPES = 'recipes';
+const BALANCE = 25.0;
+const ROUNDER = 15.0;
+const TIGHT = 10.0;
+
+const SPACE_UP_DOWN = 44.0;
+const SPACE_LEFT_RIGHT = 18.0;
+
 //sliders
 const IMAGE_ONE = 0;
 const IMAGE_TWO = 1;
@@ -73,6 +82,10 @@ const IMAGE_FOUR = 3;
 
 const HEADER = 0;
 const BODY = 1;
+
+const AVG = 100.0;
+const TALL = 500.0;
+const MEDIUM = 120.0;
 
 //button
 const BUTTON_SHAPE = RoundedRectangleBorder(

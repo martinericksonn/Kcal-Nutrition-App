@@ -41,23 +41,24 @@ class _TabsState extends State<Tabs> {
 
   SizedBox tabContents(title) {
     return SizedBox(
-      height: 500,
+      height: TALL,
       child: Center(
         child: Column(
           children: [
             SizedBox(
-              height: 120,
+              height: MEDIUM,
             ),
             Image.asset(
               'assets/images/$title.png',
-              height: 100,
-              width: 100,
+              height: AVG,
+              width: AVG,
             ),
             emptyTabTitle(title),
+            SizedBox(
+              height: 80,
+            ),
             textButton(
               'Search',
-              {},
-              {},
               POP,
               LOOSE_SPACING,
             ),
@@ -69,7 +70,7 @@ class _TabsState extends State<Tabs> {
 
   Padding emptyTabTitle(title) {
     return Padding(
-      padding: const EdgeInsets.all(25.0),
+      padding: const EdgeInsets.all(BALANCE),
       child: Column(
         children: [
           Text(
@@ -82,7 +83,7 @@ class _TabsState extends State<Tabs> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(TIGHT),
             child: Text(
               "You don't save any $title. Go ahead,\nsearch and save your favorite $title.",
               textAlign: TextAlign.center,
@@ -101,7 +102,7 @@ class _TabsState extends State<Tabs> {
   }
 
   String capitalize(word) {
-    return "${word[0].toUpperCase()}${word.substring(1)}";
+    return "${word[ZERO].toUpperCase()}${word.substring(ONE)}";
   }
 
   AdvancedSegment tabOptions() {
@@ -126,11 +127,11 @@ class _TabsState extends State<Tabs> {
       sliderColor: GREEN,
       sliderOffset: NONE,
       animationDuration: Duration(milliseconds: 100),
-      borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+      borderRadius: const BorderRadius.all(Radius.circular(ROUNDER)),
       itemPadding: const EdgeInsets.symmetric(
         // EdgeInsets
-        horizontal: 44,
-        vertical: 18,
+        horizontal: SPACE_UP_DOWN,
+        vertical: SPACE_LEFT_RIGHT,
       ),
       shadow: const <BoxShadow>[
         BoxShadow(),

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kcal_nutrition/constans.dart';
 
-void navigator(
-  currentContext,
-  destination,
+void navigator([
+  currentContext = const {},
+  destination = const {},
   choice,
-) {
+]) {
   switch (choice) {
     case PUSH:
       pushPage(currentContext, destination);
@@ -37,10 +37,10 @@ void popPage(currentContext, destination) {
 }
 
 TextButton textButton(
-  String text,
+  String text, [
   currentContext,
   destination,
-  choice, [
+  choice,
   spacing,
 ]) {
   return TextButton(

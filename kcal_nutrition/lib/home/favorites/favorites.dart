@@ -29,7 +29,7 @@ class _AppHomeState extends State<AppHome> {
     return Scaffold(
       backgroundColor: WHITE,
       appBar: AppBar(
-        toolbarHeight: 68,
+        toolbarHeight: APP_BAR_HEIGHT,
         centerTitle: true,
         title: Text(
           'Favorites',

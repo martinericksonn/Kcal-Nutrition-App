@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_segment/flutter_advanced_segment.dart';
 import 'package:kcal_nutrition/constans.dart';
+import 'package:kcal_nutrition/essentials.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs({Key? key}) : super(key: key);
@@ -26,14 +27,15 @@ class _TabsState extends State<Tabs> {
         'foods': 'Foods',
         'recipes': 'Recipes',
       },
-      activeStyle: TextStyle(
-        // TextStyle
-        color: Colors.white,
-        fontWeight: BOLD_WEIGHT,
+      activeStyle: workSans(
+        MID_PLUS_SIZE,
+        MID_PLUS_WEIGHT,
+        WHITE,
       ),
-      inactiveStyle: TextStyle(
-        color: GREEN,
-        fontWeight: BOLD_WEIGHT,
+      inactiveStyle: workSans(
+        MID_PLUS_SIZE,
+        MID_PLUS_WEIGHT,
+        GREEN,
       ),
       backgroundColor: LIGHT_GREEN,
       sliderColor: GREEN,
@@ -41,8 +43,8 @@ class _TabsState extends State<Tabs> {
       borderRadius: const BorderRadius.all(Radius.circular(15.0)),
       itemPadding: const EdgeInsets.symmetric(
         // EdgeInsets
-        horizontal: 50,
-        vertical: 20,
+        horizontal: 44,
+        vertical: 18,
       ),
       shadow: const <BoxShadow>[
         BoxShadow(),

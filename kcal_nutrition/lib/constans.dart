@@ -9,10 +9,11 @@ const Color PINK = Color(0xFFFF9386);
 const Color BLACK = Colors.black54;
 const Color SUPER_BLACK = Colors.black;
 const Color WHITE = Colors.white;
-const Color SHADOW = Color(0xFFEEEEEE);
+const Color SHADOW = Color(0xFFF6F6F6);
 
 // font size
 const double MID_SIZE = 16;
+const double MID_PLUS_SIZE = 18;
 const double BIG_SIZE = 24;
 const double BIGGER_SIZE = 38;
 
@@ -23,6 +24,7 @@ const double DEFAULT_SPACING = 0;
 
 //font weight
 const FontWeight MID_WEIGHT = FontWeight.w500;
+const FontWeight MID_PLUS_WEIGHT = FontWeight.w600;
 const FontWeight BOLD_WEIGHT = FontWeight.w700;
 const FontWeight EXTRA_BOLD_WEIGHT = FontWeight.w800;
 

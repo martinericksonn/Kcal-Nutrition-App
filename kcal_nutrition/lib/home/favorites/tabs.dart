@@ -13,7 +13,7 @@ class Tabs extends StatefulWidget {
 }
 
 class _TabsState extends State<Tabs> {
-  final _controller = AdvancedSegmentController('all');
+  final _controller = AdvancedSegmentController('foods');
   @override
   Widget build(BuildContext context) {
     return tabs();
@@ -40,6 +40,7 @@ class _TabsState extends State<Tabs> {
       backgroundColor: LIGHT_GREEN,
       sliderColor: GREEN,
       sliderOffset: 0.0,
+      animationDuration: Duration(milliseconds: 100),
       borderRadius: const BorderRadius.all(Radius.circular(15.0)),
       itemPadding: const EdgeInsets.symmetric(
         // EdgeInsets
@@ -49,6 +50,42 @@ class _TabsState extends State<Tabs> {
       shadow: const <BoxShadow>[
         BoxShadow(),
       ],
+    );
+  }
+}
+
+void main() {
+  runApp(const TabBarDemo());
+}
+
+class TabBarDemo extends StatelessWidget {
+  const TabBarDemo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: const TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.directions_car)),
+                Tab(icon: Icon(Icons.directions_transit)),
+                Tab(icon: Icon(Icons.directions_bike)),
+              ],
+            ),
+            title: const Text('Tabs Demo'),
+          ),
+          body: const TabBarView(
+            children: [
+              Icon(Icons.directions_car),
+              Icon(Icons.directions_transit),
+              Icon(Icons.directions_bike),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

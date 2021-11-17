@@ -46,7 +46,10 @@ class _AppHomeState extends State<AppHome> {
         child: Center(
           child: Align(
             alignment: Alignment.topCenter,
-            child: Tabs(),
+            child: DefaultTabController(
+              length: 2,
+              child: Tabs(),
+            ),
           ),
         ),
       ),

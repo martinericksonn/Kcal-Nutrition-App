@@ -54,6 +54,13 @@ class _TabsState extends State<Tabs> {
               width: 100,
             ),
             emptyTabTitle(title),
+            textButton(
+              'Search',
+              {},
+              {},
+              POP,
+              LOOSE_SPACING,
+            ),
           ],
         ),
       ),

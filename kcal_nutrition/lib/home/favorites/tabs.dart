@@ -27,51 +27,36 @@ class _TabsState extends State<Tabs> {
             valueListenable: _controller,
             builder: (_, key, __) {
               switch (key) {
-                case 'foods':
-                  return SizedBox(
-                    height: 500,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 120,
-                          ),
-                          Image.asset(
-                            'assets/images/vegetables.png',
-                            height: 100,
-                            width: 100,
-                          ),
-                          emptyTabTitle('food'),
-                        ],
-                      ),
-                    ),
-                  );
-
-                case 'recipes':
-                  return SizedBox(
-                    height: 500,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 120,
-                          ),
-                          Image.asset(
-                            'assets/images/salad.png',
-                            height: 100,
-                            width: 100,
-                          ),
-                          emptyTabTitle('recipes'),
-                        ],
-                      ),
-                    ),
-                  );
-
+                case FOODS:
+                  return tabContents(FOODS);
+                case RECIPES:
+                  return tabContents(RECIPES);
                 default:
                   return const SizedBox();
               }
             })
       ],
+    );
+  }
+
+  SizedBox tabContents(title) {
+    return SizedBox(
+      height: 500,
+      child: Center(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 120,
+            ),
+            Image.asset(
+              'assets/images/$title.png',
+              height: 100,
+              width: 100,
+            ),
+            emptyTabTitle(title),
+          ],
+        ),
+      ),
     );
   }
 
@@ -132,7 +117,7 @@ class _TabsState extends State<Tabs> {
       ),
       backgroundColor: LIGHT_GREEN,
       sliderColor: GREEN,
-      sliderOffset: 0.0,
+      sliderOffset: NONE,
       animationDuration: Duration(milliseconds: 100),
       borderRadius: const BorderRadius.all(Radius.circular(15.0)),
       itemPadding: const EdgeInsets.symmetric(

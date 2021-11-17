@@ -62,6 +62,9 @@ const CIRCULAR = Radius.circular(30.0);
 const AVATAR_RADIUS = 22.0;
 const PUSH = 0;
 const POP = 1;
+
+const FOODS = 'foods';
+const RECIPES = 'recipes';
 //sliders
 const IMAGE_ONE = 0;
 const IMAGE_TWO = 1;

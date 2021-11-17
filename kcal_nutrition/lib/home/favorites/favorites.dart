@@ -2,7 +2,6 @@
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:kcal_nutrition/constans.dart';
-// import 'package:octicons_icon/octicons.dart';
 
 class AppHome extends StatefulWidget {
   AppHome({Key? key}) : super(key: key);
@@ -25,7 +24,12 @@ class _AppHomeState extends State<AppHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Favorite')),
+      backgroundColor: WHITE,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('Favorite'),
+        elevation: NONE,
+      ),
       body: SafeArea(
         child: Center(
           child: Text("Hello World"),
@@ -62,6 +66,7 @@ class _AppHomeState extends State<AppHome> {
 
   BottomNavigationBar navBar() {
     return BottomNavigationBar(
+      backgroundColor: WHITE,
       showSelectedLabels: false,
       showUnselectedLabels: false,
       currentIndex: _selectedIndex,

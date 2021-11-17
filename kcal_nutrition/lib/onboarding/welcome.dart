@@ -29,6 +29,7 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: WHITE,
       body: SafeArea(
         child: Stack(
           children: [

@@ -87,6 +87,8 @@ flutter:
     - assets/images/choco-lamb.png
     - assets/images/lemon.png
     - assets/images/fish.png
+    - assets/images/cookie-1.png
+    - assets/images/cookie-2.png
 
   #   - images/a_dot_ham.jpeg
 

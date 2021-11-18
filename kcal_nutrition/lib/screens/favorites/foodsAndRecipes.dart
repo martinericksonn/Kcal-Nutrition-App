@@ -33,13 +33,25 @@ class _AppHomeState extends State<AppHome> {
     });
   }
 
+  static var textTyle = workSans(
+    MID_SIZE,
+    MID_WEIGHT,
+    BLACK,
+    DEFAULT_SPACING,
+    LOOSE_HEIGHT,
+  );
   // ignore: prefer_final_fields
   List<Widget> _widgetOptions = <Widget>[
     ContentButton(),
-    Text('Index 1: Business'),
-    Text('Index 2: School'),
+    Text(
+      'Searching...',
+      textAlign: TextAlign.center,
+      style: textTyle,
+    ),
+    Text('Click*', style: textTyle),
     favorite(),
-    Text('Index 1: Business')
+    Text('Developed by\nMartin Erickson Lapetake\nBSCS-3 | USJ-R\nMobile Dev',
+        textAlign: TextAlign.center, style: textTyle)
   ];
 
   @override

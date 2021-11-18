@@ -49,7 +49,7 @@ class _SplashState extends State<Splash> {
       backgroundColor: GREEN,
       body: AnimatedOpacity(
         opacity: 1.0,
-        duration: Duration(milliseconds: 2000),
+        duration: Duration(milliseconds: 3500),
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(

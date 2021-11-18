@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
+import 'package:kcal_nutrition/screens/favorites/foods.dart';
+import 'package:kcal_nutrition/screens/favorites/foodsAndRecipes.dart';
 import 'package:kcal_nutrition/screens/favorites/tabs.dart';
 
 Padding favoriteFoods() {
@@ -63,16 +65,25 @@ Padding cardContents(title) {
   );
 }
 
-Card foodCards(title) {
-  return Card(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(BORDER_AVG_RADIUS),
+InkWell foodCards(title) {
+  return InkWell(
+    onTap: () {
+      navigatorKey.currentState!.push(MaterialPageRoute(
+        builder: (context) => Foods(
+          title: title,
+        ),
+      ));
+    },
+    child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(BORDER_AVG_RADIUS),
+        ),
       ),
+      elevation: NONE,
+      color: CARD_COLOR,
+      child: foodCardContents(title),
     ),
-    elevation: NONE,
-    color: CARD_COLOR,
-    child: foodCardContents(title),
   );
 }
 

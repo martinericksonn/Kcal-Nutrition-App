@@ -15,6 +15,7 @@ const Color CARD_COLOR = Color(0xFFFEFAEF);
 const Color CARD_TITLE_COLOR = Color(0xFF4D4129);
 const Color CARD_TITLE2_COLOR = Color(0xFF998151);
 const Color CARD_BODY_COLOR = Color(0xFF4C4028);
+const Color CARD_ING_COLOR = Color(0xFFFAFCF9);
 
 // font size
 const double SMALL_SIZE = 12;
@@ -36,6 +37,7 @@ const double LOOSE_SPACING = 1.0;
 const double TIGHT_SPACING = -0.5;
 const double DEFAULT_SPACING = 0;
 const double LOOSE_HEIGHT = 1.5;
+const double VERY_LOOSE_HEIGHT = 1.8;
 const double DEFAULT_HEIGHT = 1.0;
 
 //onboarding screens
@@ -135,3 +137,8 @@ const MaterialColor DEFAULT_WHITE = MaterialColor(
     900: Color(0xFFFFFFFF),
   },
 );
+
+const RECIPE = 0;
+const STEP_1 = 1;
+const STEP_2 = 2;
+const STEP_3 = 3;

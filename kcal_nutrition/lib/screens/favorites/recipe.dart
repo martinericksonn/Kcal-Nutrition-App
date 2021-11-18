@@ -48,26 +48,74 @@ class Recipe extends StatelessWidget {
         Image.asset(image),
         Column(
           children: [
-            SizedBox(
-              height: 70,
-              child: Row(children: [
-                cardIcon(Icons.schedule_outlined),
-                cardText('$time min'),
-                cardIcon(Feather.users),
-                cardText('$serve serve'),
-                starRatings(),
-              ]),
+            recipeServings(),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 18.0, vertical: 10),
+              child: Row(
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    SizedBox(
+                      width: 200,
+                      child: Text(
+                        '$title',
+                        style: workSans(
+                          LESS_BIG_SIZE,
+                          MID_PLUS_WEIGHT,
+                          SUPER_BLACK,
+                          DEFAULT_SPACING,
+                          LOOSE_HEIGHT,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 75.0),
+                      child: CircleAvatar(
+                        radius: AVATAR_RADIUS,
+                        backgroundColor: LIGHT_GREEN,
+                        child: Icon(
+                          Icons.favorite_border_outlined,
+                          color: GREEN,
+                        ),
+                      ),
+                    ),
+                  ]),
             )
           ],
         ),
       ],
     ));
   }
+
+  Padding recipeServings() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        elevation: NONE,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+        color: CARD_COLOR,
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Row(children: [
+            cardIcon(Icons.schedule_outlined),
+            cardText('$time min'),
+            cardIcon(Feather.users),
+            cardText('$serve serve'),
+            starRatings(),
+          ]),
+        ),
+      ),
+    );
+  }
 }
 
 Padding starRatings() {
   return Padding(
-    padding: const EdgeInsets.only(left: 45.0, right: 0),
+    padding: const EdgeInsets.only(left: 35.0, right: 0),
     child: Row(
       children: [
         cardIcon(Icons.star, PINK),
@@ -84,7 +132,7 @@ Icon cardIcon(iconType, [iconColor = CARD_TITLE_COLOR]) {
   return Icon(
     iconType,
     color: iconColor,
-    size: 14,
+    size: 16,
   );
 }
 
@@ -93,7 +141,7 @@ Padding cardText(text) {
     padding: const EdgeInsets.only(left: 6.0, right: 12),
     child: Text('$text',
         style: workSans(
-          MID_SIZE,
+          MID_EXTRA_SIZE,
           MID_WEIGHT,
           CARD_TITLE_COLOR,
         )),

@@ -1,10 +1,13 @@
-// ignore_for_file: prefer_const_constructors, import_of_legacy_library_into_null_safe, prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, import_of_legacy_library_into_null_safe, prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables, unused_field
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
 import 'package:kcal_nutrition/screens/favorites/tabs.dart';
 import 'package:kcal_nutrition/screens/home/home.dart';
+
+// ignore: must_be_immutable
+bool hasFoods = false;
 
 class AppHome extends StatefulWidget {
   AppHome({Key? key}) : super(key: key);
@@ -14,6 +17,7 @@ class AppHome extends StatefulWidget {
 }
 
 class _AppHomeState extends State<AppHome> {
+  List title = <String>['Home', 'Search', 'Camera', 'Favorite', 'User'];
   int _selectedIndex = ZERO;
   Color selectedIcon = BLACK;
 
@@ -26,7 +30,7 @@ class _AppHomeState extends State<AppHome> {
 
   // ignore: prefer_final_fields
   List<Widget> _widgetOptions = <Widget>[
-    homeConents(),
+    ContentButton(),
     Text('Index 1: Business'),
     Text('Index 2: School'),
     favorite(),
@@ -41,7 +45,7 @@ class _AppHomeState extends State<AppHome> {
         toolbarHeight: APP_BAR_HEIGHT,
         centerTitle: true,
         title: Text(
-          'Favorites',
+          title[_selectedIndex],
           style: workSans(
             MID_SIZE,
             MID_WEIGHT,
@@ -51,94 +55,11 @@ class _AppHomeState extends State<AppHome> {
         ),
         elevation: NONE,
       ),
-      body: SizedBox(
+      body: SafeArea(
         child: Center(
-          child: Table(
-              border: TableBorder.all(
-                color: WHITE,
-                width: 5,
-              ),
-              columnWidths: const <int, TableColumnWidth>{},
-              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-              children: <TableRow>[
-                TableRow(children: [
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
-                    elevation: NONE,
-                    color: CARD_COLOR,
-                    child: SizedBox(
-                      width: 200,
-                      height: 80,
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: MID_SIZE,
-                              left: MID_SIZE,
-                              bottom: MID_SIZE,
-                            ),
-                            child: Image.asset('assets/images/cookie.png'),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 5,
-                            ),
-                            child: Text(
-                              "Cookie",
-                              style: workSans(
-                                MID_PLUS_SIZE,
-                                MID_WEIGHT,
-                                CARD_TITLE_COLOR,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 10,
-                            ),
-                            child: Icon(
-                              // Feather.chevron_right,Icon(
-                              Icons.arrow_forward_ios_outlined,
-
-                              size: MID_PLUS_SIZE,
-                              color: CARD_TITLE2_COLOR,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Card(
-                    color: CARD_COLOR,
-                    child: Row(
-                      children: [
-                        Image.asset('assets/images/cookie.png'),
-                        Row(
-                          children: [
-                            Text(
-                              "Cookie",
-                              style: workSans(
-                                MID_PLUS_SIZE,
-                                MID_WEIGHT,
-                                CARD_TITLE2_COLOR,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ]),
-              ]),
+          child: _widgetOptions.elementAt(_selectedIndex),
         ),
       ),
-      //  SafeArea(
-      //   child: Center(
-      //     child: _widgetOptions.elementAt(_selectedIndex),
-      //   ),
-      // ),
       bottomNavigationBar: SizedBox(
         height: NAV_BAR_HEIGHT,
         child: navBarHolder(),

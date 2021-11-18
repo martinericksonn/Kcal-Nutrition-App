@@ -1,59 +1,59 @@
+// ignore_for_file: file_names, prefer_const_constructors, unused_local_variable, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
+import 'package:kcal_nutrition/screens/favorites/favorites.dart';
 
-SizedBox homeConents() {
-  return SizedBox(
-    height: TALL,
-    child: Center(
-      child: Table(
-          columnWidths: const <int, TableColumnWidth>{},
-          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-          children: <TableRow>[
-            TableRow(children: [
-              Card(
-                elevation: 6,
-                color: CARD_COLOR,
-                child: Container(
-                  width: 400,
-                  height: 200,
-                  child: Row(
-                    children: [
-                      Image.asset('assets/images/cookie.png'),
-                      Text(
-                        "Cookie",
-                        style: workSans(
-                          MID_PLUS_SIZE,
-                          MID_WEIGHT,
-                          CARD_TITLE2_COLOR,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Card(
-                  color: CARD_COLOR,
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/cookie.png'),
-                    Row(
-                      children: [
-                        Text(
-                          "Cookie",
-                          style: workSans(
-                            MID_PLUS_SIZE,
-                            MID_WEIGHT,
-                            CARD_TITLE2_COLOR,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ]),
-          ]),
-    ),
-  );
+class ContentButton extends StatefulWidget {
+  const ContentButton({Key? key}) : super(key: key);
+
+  @override
+  _ContentButtonState createState() => _ContentButtonState();
+}
+
+class _ContentButtonState extends State<ContentButton> {
+  String title = 'Add Contents';
+  void _onItemTapped() {
+    setState(() {
+      hasFoods = hasFoods ? false : true;
+      title = (hasFoods) ? 'Add Contents' : 'Remove Contents';
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: modifiedtextButton(title),
+    );
+  }
+
+  TextButton modifiedtextButton(
+    String text, [
+    currentContext,
+    destination,
+    choice,
+    spacing,
+  ]) {
+    return TextButton(
+      onPressed: () {
+        _onItemTapped();
+        print(hasFoods);
+      },
+      child: Text(
+        text,
+        style: workSans(
+          BIG_SIZE,
+          MID_WEIGHT,
+          WHITE,
+        ),
+      ),
+      style: TextButton.styleFrom(
+        primary: WHITE,
+        backgroundColor: PINK,
+        minimumSize: BUTTON_SIZE,
+        shape: BUTTON_SHAPE,
+      ),
+    );
+  }
 }

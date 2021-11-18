@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_segment/flutter_advanced_segment.dart';
 import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
-import 'package:kcal_nutrition/screens/favorites/favorites.dart';
-import 'package:kcal_nutrition/screens/favorites/favoritesWithConents.dart';
+import 'package:kcal_nutrition/screens/favorites/foods.dart';
+import 'package:kcal_nutrition/screens/favorites/foodsWithConents.dart';
+import 'package:kcal_nutrition/screens/favorites/recipes.dart';
 
 var controller = AdvancedSegmentController('foods');
 Column emptyFavorites() {
@@ -19,7 +20,8 @@ Column emptyFavorites() {
                 case FOODS:
                   return favoriteFoods();
                 case RECIPES:
-                  return tabContainer(RECIPES);
+                  return recipeContent();
+                //tabContainer(RECIPES);
                 default:
                   return tabContainer(FOODS);
               }
@@ -28,7 +30,7 @@ Column emptyFavorites() {
                 case FOODS:
                   return tabContainer(FOODS);
                 case RECIPES:
-                  return tabContainer(RECIPES);
+                  return recipeContent();
                 default:
                   return tabContainer(FOODS);
               }
@@ -46,7 +48,7 @@ SizedBox tabContainer(title) {
         children: [
           emptySpace(MEDIUM),
           noFavoriteImage(title),
-          emptyTabTitle(title),
+          emptyTabMessage(title),
           emptySpace(SMALL),
           textButton('Search', POP, LOOSE_SPACING),
         ],
@@ -69,35 +71,40 @@ SizedBox emptySpace(space) {
   );
 }
 
-Padding emptyTabTitle(title) {
+Padding emptyTabMessage(title) {
   return Padding(
     padding: const EdgeInsets.all(BALANCE),
     child: Column(
-      children: [
-        Text(
-          'No ${capitalize(title)} Found',
-          style: workSans(
-            BIG_SIZE,
-            MID_WEIGHT,
-            BLACK,
-            TIGHT_SPACING,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(TIGHT),
-          child: Text(
-            "You don't save any $title. Go ahead,\nsearch and save your favorite $title.",
-            textAlign: TextAlign.center,
-            style: workSans(
-              MID_SIZE,
-              MID_WEIGHT,
-              BLACK,
-              TIGHT_SPACING,
-              LOOSE_HEIGHT,
-            ),
-          ),
-        )
-      ],
+      children: [emptyFavTitle(title), emptyFavBody(title)],
+    ),
+  );
+}
+
+Text emptyFavTitle(title) {
+  return Text(
+    'No ${capitalize(title)} Found',
+    style: workSans(
+      BIG_SIZE,
+      MID_WEIGHT,
+      BLACK,
+      TIGHT_SPACING,
+    ),
+  );
+}
+
+Padding emptyFavBody(title) {
+  return Padding(
+    padding: const EdgeInsets.all(TIGHT),
+    child: Text(
+      "You don't save any $title. Go ahead,\nsearch and save your favorite $title.",
+      textAlign: TextAlign.center,
+      style: workSans(
+        MID_SIZE,
+        MID_WEIGHT,
+        BLACK,
+        TIGHT_SPACING,
+        LOOSE_HEIGHT,
+      ),
     ),
   );
 }

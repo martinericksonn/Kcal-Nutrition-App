@@ -17,24 +17,26 @@ const Color CARD_TITLE2_COLOR = Color(0xFF998151);
 const Color CARD_BODY_COLOR = Color(0xFF4C4028);
 
 // font size
+const double SMALL_SIZE = 12;
 const double MID_SIZE = 14;
+const double MID_EXTRA_SIZE = 16;
 const double MID_PLUS_SIZE = 18;
 const double LESS_BIG_SIZE = 22;
 const double BIG_SIZE = 24;
 const double BIGGER_SIZE = 38;
-
-// font size
-const double LOOSE_SPACING = 1.0;
-const double TIGHT_SPACING = -0.5;
-const double DEFAULT_SPACING = 0;
-const double LOOSE_HEIGHT = 1.5;
-const double DEFAULT_HEIGHT = 1.0;
 
 //font weight
 const FontWeight MID_WEIGHT = FontWeight.w500;
 const FontWeight MID_PLUS_WEIGHT = FontWeight.w600;
 const FontWeight BOLD_WEIGHT = FontWeight.w700;
 const FontWeight EXTRA_BOLD_WEIGHT = FontWeight.w800;
+
+// font extra
+const double LOOSE_SPACING = 1.0;
+const double TIGHT_SPACING = -0.5;
+const double DEFAULT_SPACING = 0;
+const double LOOSE_HEIGHT = 1.5;
+const double DEFAULT_HEIGHT = 1.0;
 
 //onboarding screens
 const BTN_ALIGN = Alignment(0, 0.72);
@@ -107,7 +109,7 @@ const ARROW_ICON_TOP = 30.0;
 const ARROW_ICON_RIGHT = 10.0;
 
 const BORDER_AVG_RADIUS = 20.0;
-const EMPTY_SPACE = 80.0;
+const SMALL = 80.0;
 //button
 const BUTTON_SHAPE = RoundedRectangleBorder(
   borderRadius: BorderRadius.all(Radius.circular(24)),

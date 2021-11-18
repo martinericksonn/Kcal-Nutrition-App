@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
-import 'package:kcal_nutrition/screens/favorites/favorites.dart';
+import 'package:kcal_nutrition/screens/favorites/foods.dart';
 import 'package:kcal_nutrition/onboarding/sliders.dart';
 
 class OnBoarding extends StatefulWidget {

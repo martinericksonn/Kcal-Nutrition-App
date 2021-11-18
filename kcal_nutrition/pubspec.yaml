@@ -70,6 +70,12 @@ flutter:
     - assets/images/track.png
     - assets/images/recipes.png
     - assets/images/foods.png
+    - assets/images/french-fries.png
+    - assets/images/hotdog.png
+    - assets/images/pizza.png
+    - assets/images/donut.png
+    - assets/images/cookie.png
+    - assets/images/burger.png
 
   #   - images/a_dot_ham.jpeg
 

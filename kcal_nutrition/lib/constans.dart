@@ -11,10 +11,15 @@ const Color MID_BLACK = Colors.black87;
 const Color SUPER_BLACK = Colors.black;
 const Color WHITE = Colors.white;
 const Color SHADOW = Color(0xFFF6F6F6);
+const Color CARD_COLOR = Color(0xFFFEFAEF);
+const Color CARD_TITLE_COLOR = Color(0xFF4D4129);
+const Color CARD_TITLE2_COLOR = Color(0xFF998151);
+const Color CARD_BODY_COLOR = Color(0xFF4C4028);
 
 // font size
 const double MID_SIZE = 16;
-const double MID_PLUS_SIZE = 18;
+const double MID_PLUS_SIZE = 20;
+const double LESS_BIG_SIZE = 22;
 const double BIG_SIZE = 24;
 const double BIGGER_SIZE = 38;
 

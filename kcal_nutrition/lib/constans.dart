@@ -84,7 +84,7 @@ const HEADER = 0;
 const BODY = 1;
 
 const AVG = 100.0;
-const TALL = 500.0;
+const TALL = 540.0;
 const MEDIUM = 120.0;
 
 //button

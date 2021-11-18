@@ -24,6 +24,15 @@ class _AppHomeState extends State<AppHome> {
     });
   }
 
+  // ignore: prefer_final_fields
+  static List<Widget> _widgetOptions = <Widget>[
+    Text('Index 0: Home'),
+    Text('Index 1: Business'),
+    Text('Index 2: School'),
+    favorite(),
+    Text('Index 1: Business')
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,18 +53,26 @@ class _AppHomeState extends State<AppHome> {
       ),
       body: SafeArea(
         child: Center(
-          child: Align(
-            alignment: Alignment.topCenter,
-            child: DefaultTabController(
-              length: 2,
-              child: Tabs(),
-            ),
-          ),
+          child: _widgetOptions.elementAt(_selectedIndex),
         ),
       ),
       bottomNavigationBar: SizedBox(
         height: NAV_BAR_HEIGHT,
         child: navBarHolder(),
+      ),
+    );
+  }
+
+  static Align favorite() {
+    return Align(
+      alignment: Alignment.topCenter,
+      child: DefaultTabController(
+        length: 2,
+        child: Column(
+          children: [
+            tabs(),
+          ],
+        ),
       ),
     );
   }

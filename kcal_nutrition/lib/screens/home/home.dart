@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
-import 'package:kcal_nutrition/screens/favorites/foods.dart';
+import 'package:kcal_nutrition/screens/favorites/foodsAndRecipes.dart';
 
 class ContentButton extends StatefulWidget {
   const ContentButton({Key? key}) : super(key: key);

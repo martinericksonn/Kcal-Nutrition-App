@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_segment/flutter_advanced_segment.dart';
 import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
-import 'package:kcal_nutrition/screens/favorites/foods.dart';
+import 'package:kcal_nutrition/screens/favorites/foodsAndRecipes.dart';
 import 'package:kcal_nutrition/screens/favorites/foodsWithConents.dart';
-import 'package:kcal_nutrition/screens/favorites/recipes.dart';
+import 'package:kcal_nutrition/screens/favorites/recipesWithConents.dart';
 
 var controller = AdvancedSegmentController('foods');
 Column emptyFavorites() {

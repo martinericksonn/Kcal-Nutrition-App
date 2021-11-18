@@ -17,23 +17,35 @@ Padding recipeContent() {
           scrollDirection: Axis.vertical,
           children: [
             recipeCards(
-              '55',
-              '3',
-              'Fish Stakes With Veggie Sauce',
-              'Boneless with stakes with crispy fried\nsauce and topings.',
-            ),
+                '55',
+                '3',
+                'Choco Lamb Veggies',
+                'Deeply fried lamb meat with choco dips\nand fresh vegetables.',
+                'assets/images/fish_steaks.jpg'),
             recipeCards(
-              '55',
-              '3',
-              'Fish Stakes With Veggie Sauce',
-              'Boneless with stakes with crispy fried\nsauce and topings.',
-            ),
+                '25',
+                '1',
+                'Fish Stakes With Veggie Sauce',
+                'Boneless with stakes with crispy fried\nsauce and topings.',
+                'assets/images/choco-lamb.png'),
             recipeCards(
-              '55',
-              '3',
-              'Fish Stakes With Veggie Sauce',
-              'Boneless with stakes with crispy fried\nsauce and topings.',
-            ),
+                '55',
+                '3',
+                'Mutton Kebab Nuggets',
+                'Crunchy mutton kebabs with chilli\ntoppings and sauce.',
+                'assets/images/poplare.png'),
+            recipeCards(
+                '55',
+                '3',
+                'Fish Stakes With Veggie Sauce',
+                'Boneless with stakes with crispy fried\nsauce and topings.',
+                'assets/images/bhavan.png'),
+            recipeCards(
+                '55',
+                '3',
+                'Fruit Veggie Mix With Meat',
+                'Crunchy deep fried meat mixed with\nfruits and vegetables.',
+                'assets/images/veggie-mix.png'),
           ],
         ),
       ),
@@ -41,7 +53,7 @@ Padding recipeContent() {
   );
 }
 
-Padding recipeCards(time, serve, title, body) {
+Padding recipeCards(time, serve, title, body, image) {
   return Padding(
     padding: const EdgeInsets.only(bottom: 8.0),
     child: Card(
@@ -60,8 +72,14 @@ Padding recipeCards(time, serve, title, body) {
               children: [
                 Stack(
                   children: [
-                    Image.asset('assets/images/fish_steaks.jpg',
-                        height: 133, width: 323),
+                    SizedBox(
+                      height: 120,
+                      width: 320,
+                      child: Image.asset(
+                        '$image',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ],
                 ),
                 Padding(

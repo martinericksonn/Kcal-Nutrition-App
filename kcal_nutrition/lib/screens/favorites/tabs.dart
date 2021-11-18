@@ -21,16 +21,16 @@ Column emptyFavorites() {
                   return favoriteFoods();
                 case RECIPES:
                   return recipeContent();
-                //tabContainer(RECIPES);
+
                 default:
-                  return tabContainer(FOODS);
+                  return favoriteFoods();
               }
             } else {
               switch (key) {
                 case FOODS:
                   return tabContainer(FOODS);
                 case RECIPES:
-                  return recipeContent();
+                  return tabContainer(RECIPES);
                 default:
                   return tabContainer(FOODS);
               }

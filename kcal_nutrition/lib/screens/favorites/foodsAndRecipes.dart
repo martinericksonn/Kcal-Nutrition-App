@@ -18,7 +18,7 @@ class AppHome extends StatefulWidget {
 
 class _AppHomeState extends State<AppHome> {
   List title = <String>['Home', 'Search', 'Camera', 'Favorites', 'User'];
-  int _selectedIndex = ZERO;
+  int _selectedIndex = FAVORITES;
   Color selectedIcon = BLACK;
   // ignore: prefer_typing_uninitialized_variables
   static var widgetToDisplay;

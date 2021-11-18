@@ -63,6 +63,7 @@ const ONE = 1;
 const INDICATOR_SHAPE = BorderRadius.all(Radius.elliptical(140, 100));
 
 //favorite screen
+const FAVORITES = 3;
 const APP_BAR_HEIGHT = 68.0;
 const NAV_BAR_HEIGHT = 84.0;
 const MINIMAL = 5.0;

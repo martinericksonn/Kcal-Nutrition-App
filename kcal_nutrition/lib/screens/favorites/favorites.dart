@@ -3,8 +3,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
-
-import 'package:kcal_nutrition/home/favorites/tabs.dart';
+import 'package:kcal_nutrition/screens/favorites/tabs.dart';
 
 class AppHome extends StatefulWidget {
   AppHome({Key? key}) : super(key: key);
@@ -26,12 +25,21 @@ class _AppHomeState extends State<AppHome> {
 
   // ignore: prefer_final_fields
   static List<Widget> _widgetOptions = <Widget>[
-    Text('Index 0: Home'),
+    homeConents(),
     Text('Index 1: Business'),
     Text('Index 2: School'),
     favorite(),
     Text('Index 1: Business')
   ];
+
+  static SizedBox homeConents() {
+    return SizedBox(
+      height: TALL,
+      child: Center(
+        child: Text('Index 0: Home'),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

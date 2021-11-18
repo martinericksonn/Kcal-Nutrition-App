@@ -3,7 +3,6 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
-import 'package:kcal_nutrition/screens/favorites/favoritesWithConents.dart';
 import 'package:kcal_nutrition/screens/favorites/tabs.dart';
 import 'package:kcal_nutrition/screens/home/home.dart';
 

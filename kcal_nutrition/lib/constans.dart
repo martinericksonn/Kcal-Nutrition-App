@@ -92,6 +92,22 @@ const AVG = 100.0;
 const TALL = 540.0;
 const MEDIUM = 120.0;
 
+//foods screen
+const ABOVE_PADDING = 12.0;
+const SIDE_PADDING = 14.0;
+
+const BOX_WIDTH = 200.0;
+const BOX_HEIGHT = 80.0;
+
+const BORDER_WIDTH = 5.0;
+
+const IMAGE_FOOD_SIZE = 40.0;
+const FOOD_NAME_PADDING = 7.0;
+const ARROW_ICON_TOP = 30.0;
+const ARROW_ICON_RIGHT = 10.0;
+
+const BORDER_AVG_RADIUS = 20.0;
+
 //button
 const BUTTON_SHAPE = RoundedRectangleBorder(
   borderRadius: BorderRadius.all(Radius.circular(24)),

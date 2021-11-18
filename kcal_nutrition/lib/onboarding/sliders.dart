@@ -7,7 +7,7 @@ import 'package:kcal_nutrition/constans.dart';
 final List<String> imgList = [
   "https://i.ibb.co/s3mHTLD/eating.png",
   "https://i.ibb.co/dWQzmK3/cooking.png",
-  "https://i.ibb.co/MVZrB5z/health.png",
+  "https://i.ibb.co/02XqsbJ/track.png",
 ];
 
 String onboardingMessage(int index, int choices) {
@@ -27,7 +27,6 @@ String onboardingMessage(int index, int choices) {
       header = 'Track Your Health';
       body = 'With amazing inbuild tools\nyou can track you progess.';
       break;
-
     default:
   }
 

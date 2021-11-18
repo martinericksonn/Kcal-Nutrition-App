@@ -17,7 +17,7 @@ const Color CARD_TITLE2_COLOR = Color(0xFF998151);
 const Color CARD_BODY_COLOR = Color(0xFF4C4028);
 
 // font size
-const double MID_SIZE = 16;
+const double MID_SIZE = 14;
 const double MID_PLUS_SIZE = 18;
 const double LESS_BIG_SIZE = 22;
 const double BIG_SIZE = 24;

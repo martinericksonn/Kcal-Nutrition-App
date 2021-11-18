@@ -4,27 +4,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_segment/flutter_advanced_segment.dart';
 import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
+import 'package:kcal_nutrition/screens/favorites/favorites.dart';
+import 'package:kcal_nutrition/screens/favorites/favoritesWithConents.dart';
 
-final _controller = AdvancedSegmentController('foods');
-
-@override
-Widget build(BuildContext context) {
-  return tabs();
-}
-
-Column tabs() {
+var controller = AdvancedSegmentController('foods');
+Column emptyFavorites() {
   return Column(
     children: [
       ValueListenableBuilder<String>(
-          valueListenable: _controller,
+          valueListenable: controller,
           builder: (_, key, __) {
-            switch (key) {
-              case FOODS:
-                return tabContents(FOODS);
-              case RECIPES:
-                return tabContents(RECIPES);
-              default:
-                return const SizedBox();
+            if (hasFavorites) {
+              switch (key) {
+                case FOODS:
+                  return favoriteFoods();
+                case RECIPES:
+                  return tabContents(RECIPES);
+                default:
+                  return tabContents(FOODS);
+              }
+            } else {
+              switch (key) {
+                case FOODS:
+                  return tabContents(FOODS);
+                case RECIPES:
+                  return tabContents(RECIPES);
+                default:
+                  return tabContents(FOODS);
+              }
             }
           })
     ],
@@ -99,7 +106,7 @@ String capitalize(word) {
 
 AdvancedSegment tabOptions() {
   return AdvancedSegment(
-    controller: _controller, // AdvancedSegmentController
+    controller: controller, // AdvancedSegmentController
     // ignore: prefer_const_literals_to_create_immutables
     segments: {
       'foods': 'Foods',
@@ -129,10 +136,4 @@ AdvancedSegment tabOptions() {
       BoxShadow(),
     ],
   );
-}
-
-@override
-State<StatefulWidget> createState() {
-  // TODO: implement createState
-  throw UnimplementedError();
 }

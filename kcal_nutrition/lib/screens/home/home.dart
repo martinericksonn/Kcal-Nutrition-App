@@ -13,11 +13,11 @@ class ContentButton extends StatefulWidget {
 }
 
 class _ContentButtonState extends State<ContentButton> {
-  String title = 'Add Contents';
+  String title = (hasFavorites) ? 'Add Contents' : 'Remove Contents';
   void _onItemTapped() {
     setState(() {
-      hasFoods = hasFoods ? false : true;
-      title = (hasFoods) ? 'Add Contents' : 'Remove Contents';
+      hasFavorites = hasFavorites ? false : true;
+      title = (hasFavorites) ? 'Add Contents' : 'Remove Contents';
     });
   }
 
@@ -38,7 +38,7 @@ class _ContentButtonState extends State<ContentButton> {
     return TextButton(
       onPressed: () {
         _onItemTapped();
-        print(hasFoods);
+        print(hasFavorites);
       },
       child: Text(
         text,

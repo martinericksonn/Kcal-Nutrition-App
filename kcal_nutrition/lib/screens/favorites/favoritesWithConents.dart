@@ -5,34 +5,41 @@ import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
 import 'package:kcal_nutrition/screens/favorites/tabs.dart';
 
-SizedBox homeConents() {
-  return SizedBox(
-    child: Center(
-      child: Table(
-          border: TableBorder.all(
-            color: WHITE,
-            width: 5,
-          ),
-          columnWidths: const <int, TableColumnWidth>{},
-          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-          children: <TableRow>[
-            TableRow(children: [
-              cardContents('cookie'),
-              cardContents('burger'),
+Padding favoriteFoods() {
+  return Padding(
+    padding: const EdgeInsets.only(
+      top: 12.0,
+      left: 14.0,
+      right: 14.0,
+    ),
+    child: SizedBox(
+      child: Center(
+        child: Table(
+            border: TableBorder.all(
+              color: WHITE,
+              width: 5,
+            ),
+            columnWidths: const <int, TableColumnWidth>{},
+            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+            children: <TableRow>[
+              TableRow(children: [
+                cardContents('cookie'),
+                cardContents('burger'),
+              ]),
+              TableRow(children: [
+                cardContents('cakes'),
+                cardContents('pizza'),
+              ]),
+              TableRow(children: [
+                cardContents('hotdog'),
+                cardContents('fries'),
+              ]),
+              TableRow(children: [
+                cardContents('donuts'),
+                SizedBox(),
+              ]),
             ]),
-            TableRow(children: [
-              cardContents('cakes'),
-              cardContents('pizza'),
-            ]),
-            TableRow(children: [
-              cardContents('hotdog'),
-              cardContents('fries'),
-            ]),
-            TableRow(children: [
-              cardContents('donuts'),
-              SizedBox(),
-            ]),
-          ]),
+      ),
     ),
   );
 }

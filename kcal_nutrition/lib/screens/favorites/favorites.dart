@@ -3,11 +3,12 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:kcal_nutrition/constans.dart';
 import 'package:kcal_nutrition/essentials.dart';
+import 'package:kcal_nutrition/screens/favorites/favoritesWithConents.dart';
 import 'package:kcal_nutrition/screens/favorites/tabs.dart';
 import 'package:kcal_nutrition/screens/home/home.dart';
 
 // ignore: must_be_immutable
-bool hasFoods = false;
+bool hasFavorites = false;
 
 class AppHome extends StatefulWidget {
   AppHome({Key? key}) : super(key: key);
@@ -17,14 +18,18 @@ class AppHome extends StatefulWidget {
 }
 
 class _AppHomeState extends State<AppHome> {
-  List title = <String>['Home', 'Search', 'Camera', 'Favorite', 'User'];
+  List title = <String>['Home', 'Search', 'Camera', 'Favorites', 'User'];
   int _selectedIndex = ZERO;
   Color selectedIcon = BLACK;
+  // ignore: prefer_typing_uninitialized_variables
+  static var widgetToDisplay;
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
       selectedIcon = PINK;
+      hasFavorites = hasFavorites ? false : true;
+      widgetToDisplay = hasFavorites ? favorite : emptyFavorites;
     });
   }
 
@@ -48,7 +53,7 @@ class _AppHomeState extends State<AppHome> {
           title[_selectedIndex],
           style: workSans(
             MID_SIZE,
-            MID_WEIGHT,
+            MID_PLUS_WEIGHT,
             SUPER_BLACK,
             TIGHT_SPACING,
           ),
@@ -74,7 +79,8 @@ class _AppHomeState extends State<AppHome> {
         length: 2,
         child: Column(
           children: [
-            tabs(),
+            tabOptions(),
+            emptyFavorites(),
           ],
         ),
       ),
@@ -128,7 +134,9 @@ class _AppHomeState extends State<AppHome> {
         icon: CircleAvatar(
           radius: AVATAR_RADIUS,
           backgroundColor: GREEN,
-          child: Icon(Feather.camera),
+          child: Icon(
+            Icons.photo_camera_rounded,
+          ),
         ),
         label: 'camera');
   }

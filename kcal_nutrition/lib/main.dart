@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kcal_nutrition/constans.dart';
+import 'package:kcal_nutrition/screens/favorites/foodsAndRecipes.dart';
 import 'splash.dart';
 
 void main() => runApp(const MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
+      navigatorKey: navigatorKey,
       title: 'Kcal App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

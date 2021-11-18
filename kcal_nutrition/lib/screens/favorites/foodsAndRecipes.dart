@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, import_of_legacy_library_into_null_safe, prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables, unused_field
+// ignore_for_file: prefer_const_constructors, import_of_legacy_library_into_null_safe, prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables, unused_field, file_names
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:kcal_nutrition/constans.dart';
@@ -8,6 +8,7 @@ import 'package:kcal_nutrition/screens/home/home.dart';
 
 // ignore: must_be_immutable
 bool hasFavorites = false;
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class AppHome extends StatefulWidget {
   AppHome({Key? key}) : super(key: key);

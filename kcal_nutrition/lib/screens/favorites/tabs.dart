@@ -19,18 +19,18 @@ Column emptyFavorites() {
                 case FOODS:
                   return favoriteFoods();
                 case RECIPES:
-                  return tabContents(RECIPES);
+                  return tabContainer(RECIPES);
                 default:
-                  return tabContents(FOODS);
+                  return tabContainer(FOODS);
               }
             } else {
               switch (key) {
                 case FOODS:
-                  return tabContents(FOODS);
+                  return tabContainer(FOODS);
                 case RECIPES:
-                  return tabContents(RECIPES);
+                  return tabContainer(RECIPES);
                 default:
-                  return tabContents(FOODS);
+                  return tabContainer(FOODS);
               }
             }
           })
@@ -38,32 +38,34 @@ Column emptyFavorites() {
   );
 }
 
-SizedBox tabContents(title) {
+SizedBox tabContainer(title) {
   return SizedBox(
     height: TALL,
     child: Center(
       child: Column(
         children: [
-          SizedBox(
-            height: MEDIUM,
-          ),
-          Image.asset(
-            'assets/images/$title.png',
-            height: AVG,
-            width: AVG,
-          ),
+          emptySpace(MEDIUM),
+          noFavoriteImage(title),
           emptyTabTitle(title),
-          SizedBox(
-            height: 80,
-          ),
-          textButton(
-            'Search',
-            POP,
-            LOOSE_SPACING,
-          ),
+          emptySpace(SMALL),
+          textButton('Search', POP, LOOSE_SPACING),
         ],
       ),
     ),
+  );
+}
+
+Image noFavoriteImage(title) {
+  return Image.asset(
+    'assets/images/$title.png',
+    height: AVG,
+    width: AVG,
+  );
+}
+
+SizedBox emptySpace(space) {
+  return SizedBox(
+    height: space,
   );
 }
 

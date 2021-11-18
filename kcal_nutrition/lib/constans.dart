@@ -107,7 +107,7 @@ const ARROW_ICON_TOP = 30.0;
 const ARROW_ICON_RIGHT = 10.0;
 
 const BORDER_AVG_RADIUS = 20.0;
-
+const EMPTY_SPACE = 80.0;
 //button
 const BUTTON_SHAPE = RoundedRectangleBorder(
   borderRadius: BorderRadius.all(Radius.circular(24)),

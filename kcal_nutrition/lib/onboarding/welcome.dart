@@ -112,7 +112,10 @@ class _OnBoardingState extends State<OnBoarding> {
     return Container(
       width: _current == entry.key ? WIDTH_BIG : WIDTH_SMALL,
       height: _current == entry.key ? HEIGHT_BIG : HEIGHT_SMALL,
-      margin: EdgeInsets.symmetric(vertical: IND_X, horizontal: IND_Y),
+      margin: EdgeInsets.symmetric(
+        vertical: IND_X,
+        horizontal: IND_Y,
+      ),
       decoration: indicatorDesign(context, entry),
     );
   }
@@ -120,10 +123,11 @@ class _OnBoardingState extends State<OnBoarding> {
   BoxDecoration indicatorDesign(
       BuildContext context, MapEntry<int, String> entry) {
     return BoxDecoration(
-        borderRadius: INDICATOR_SHAPE,
-        color: (Theme.of(context).brightness == Brightness.dark
-            ? WHITE
-            : PINK.withOpacity(_current == entry.key ? DARKEN : LIGHTEN)));
+      borderRadius: INDICATOR_SHAPE,
+      color: (Theme.of(context).brightness == Brightness.dark
+          ? WHITE
+          : PINK.withOpacity(_current == entry.key ? DARKEN : LIGHTEN)),
+    );
   }
 
   Align onboardingContent() {

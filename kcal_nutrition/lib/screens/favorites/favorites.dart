@@ -36,7 +36,11 @@ class _AppHomeState extends State<AppHome> {
     return SizedBox(
       height: TALL,
       child: Center(
-        child: Text('Index 0: Home'),
+        child: Column(children: [
+          Card(
+            child: Text("hi"),
+          ),
+        ]),
       ),
     );
   }

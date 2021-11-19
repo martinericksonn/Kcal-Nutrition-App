@@ -60,28 +60,32 @@ class Recipe extends StatelessWidget {
               children: [
                 recipeServings(),
                 recipeTitle(),
-                recipeDiscription(description[RECIPE]),
+                recipeDescription(description[RECIPE]),
                 headers('Ingredients'),
                 ingrdients(),
                 headers('Directions'),
                 headers('Step 1'),
-                recipeDiscription(description[STEP_1]),
+                recipeDescription(description[STEP_1]),
                 headers('Step 2'),
-                recipeDiscription(description[STEP_2]),
+                recipeDescription(description[STEP_2]),
                 headers('Step 3'),
-                recipeDiscription(description[STEP_3]),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 28.0),
-                  child: modifiedTextButton(
-                    'Add to Favorite',
-                    navigatorKey.currentState,
-                    AppHome,
-                  ),
-                ),
+                recipeDescription(description[STEP_3]),
+                addToFavButton(),
               ],
             ),
           ],
         ));
+  }
+
+  Padding addToFavButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 28.0),
+      child: modifiedTextButton(
+        'Add to Favorite',
+        navigatorKey.currentState,
+        AppHome,
+      ),
+    );
   }
 
 // To prepare this amazing non-vegetarian
@@ -159,7 +163,7 @@ class Recipe extends StatelessWidget {
     );
   }
 
-  Padding recipeDiscription(text) {
+  Padding recipeDescription(text) {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
       child: Center(
